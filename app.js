@@ -1,7 +1,7 @@
 // Game vars
 let min = 1,
     max = 10,
-    winningNum = 5,
+    winningNum = getRandomNum(min, max),
     guessesLeft = 3;
 
 // UI vars
@@ -22,7 +22,6 @@ game.addEventListener('mousedown', (e)=>{
     if (e.target.className === 'play-again') {
         window.location.reload();
     }
-
 })
 
 
@@ -79,4 +78,13 @@ function gameOver(won, msg){
     // Play again?
     guessBtn.value = 'Play again'; 
     guessBtn.className += 'play-again';
+}
+
+
+function getRandomNum(min, max) {
+    let num =  Math.floor(Math.random() * ((max - min + 1) + min));
+    console.log('Winning number: ' + num);
+    return num;
+    
+
 }
